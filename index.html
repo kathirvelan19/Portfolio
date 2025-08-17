@@ -12,24 +12,18 @@
             box-sizing: border-box;
         }
 
-       :root {
-  
-    --primary-color: #0ea5e9; /* Sky blue */
-    --secondary-color: #4338ca; /* Dark blue / Indigo */
-    --accent-color: #a855f7; /* Violet */
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #a855f7;
+            --accent-color: #06b6d4;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --bg-primary: #000000;
+            --bg-secondary: #040404;
+            --glow-primary: 0 0 20px var(--primary-color);
+            --glow-secondary: 0 0 15px var(--secondary-color);
+        }
 
-   
-    --text-primary: #ffffff;
-    --text-secondary: #b0c4de; /* Light steel blue */
-
-  
-    --bg-primary: #0f172a; /* Very dark blue */
-    --bg-secondary: #1e293b; /* Slightly lighter dark blue */
-
-   
-    --glow-primary: 0 0 20px var(--primary-color);
-    --glow-secondary: 0 0 15px var(--accent-color);
-}
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg-primary);
@@ -60,14 +54,14 @@
 
         /* Navigation */
         nav {
-            position: fixed;
+            position: static;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
+            background:transparent;
+           
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 255, 136, 0.3);
+            
         }
 
         .nav-container {
@@ -119,24 +113,11 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+        .cursor {
+  display: none !important;
+}
 
-        /* Mobile menu toggle */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 3px 0;
-            transition: 0.3s;
-            box-shadow: var(--glow-primary);
-        }
-
-        /* Sections */
+ 
         section {
             padding: 5rem 2rem;
             max-width: 1200px;
@@ -175,10 +156,10 @@
         }
 
         .hero-content {
-            display: grid;
+            display: flex;
             grid-template-columns: 1fr;
-            gap: 2rem;
-            align-items: center;
+            gap: 2.5rem;
+            align-items:flex-end;
         }
 
         .profile-image {
@@ -186,15 +167,16 @@
             height: 300px;
             border-radius: 20%;
             object-fit: cover;
+            background: transparent;
             border: 4px solid var(--primary-color);
-            box-shadow: var(--glow-primary), 0 0 50px rgba(0, 255, 136, 0.3);
+            box-shadow: var(--glow-primary), 0 0 50px rgba(73, 30, 246, 0.3);
             margin: 0 auto;
             animation: profileGlow 3s ease-in-out infinite alternate;
         }
 
         @keyframes profileGlow {
-            0% { box-shadow: var(--glow-primary), 0 0 30px rgba(0, 255, 136, 0.3); }
-            100% { box-shadow: var(--glow-primary), 0 0 60px rgba(0, 255, 136, 0.5); }
+            0% { box-shadow: var(--glow-primary), 0 0 30px rgba(12, 53, 219, 0.5); }
+            100% { box-shadow: var(--glow-primary), 0 0 60px rgba(12, 53, 219, 0.5); }
         }
 
         .hero-text h1 {
@@ -228,7 +210,7 @@
             border: none;
             border-radius: 50px;
             font-size: 1rem;
-            cursor: pointer;
+            
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
@@ -244,7 +226,7 @@
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: var(--glow-primary), 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--glow-primary), 0 10px 20px rgba(35, 53, 251, 0.3);
         }
 
         .btn-secondary {
@@ -279,11 +261,11 @@
         /* Education Section */
         .education-card {
             background: rgba(17, 17, 17, 0.8);
-            border: 1px solid rgba(0, 255, 136, 0.3);
+            border: 1px solid rgba(55, 17, 224, 0.3);
             border-radius: 15px;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), var(--glow-primary);
+            box-shadow: 0 10px 30px rgba(37, 14, 211, 0.5), var(--glow-primary);
             transition: all 0.3s ease;
         }
 
@@ -321,7 +303,7 @@
 
         .skill-item {
             background: rgba(17, 17, 17, 0.8);
-            border: 1px solid rgba(0, 255, 136, 0.3);
+            border: 1px solid rgba(54, 141, 255, 0.3);
             border-radius: 15px;
             padding: 1.5rem;
             text-align: center;
@@ -358,7 +340,7 @@
 
         .project-card {
             background: rgba(17, 17, 17, 0.8);
-            border: 1px solid rgba(0, 255, 136, 0.3);
+            border: 1px solid rgba(88, 166, 235, 0.3);
             border-radius: 15px;
             padding: 2rem;
             transition: all 0.3s ease;
@@ -366,9 +348,9 @@
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--glow-primary), 0 20px 40px rgba(0, 0, 0, 0.7);
-            border-color: var(--primary-color);
+                      transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(6, 118, 183, 0.5);
+            border-color: blue
         }
 
         .project-card h3 {
@@ -399,10 +381,10 @@
 
         .project-card .project-outcome {
             color: var(--text-primary);
-            border-left: 3px solid var(--primary-color);
+            border-left: 3px solid var(--secondary-color);
             padding-left: 1rem;
             margin-top: 1rem;
-            background: rgba(0, 255, 136, 0.1);
+            background: rgba(5, 77, 231, 0.1);
             padding: 1rem;
             border-radius: 5px;
         }
@@ -583,30 +565,10 @@
         }
 
         /* Loading animation */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
+     
+        
 
-        .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(0, 255, 136, 0.3);
-            border-top: 3px solid var(--primary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            box-shadow: var(--glow-primary);
-        }
-
+        
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -615,14 +577,12 @@
 </head>
 <body>
     <!-- Loading Screen -->
-    <div class="loading" id="loading">
-        <div class="loader"></div>
-    </div>
+   
 
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">KATHIRVELAN PORTFOLIO</div>
+            <div class="logo"></div>
             <div class="menu-toggle" id="menu-toggle">
                 <span></span>
                 <span></span>
@@ -642,8 +602,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="kathir.png" alt="Kathir Velan R" class="profile-image">
+        
             <div class="hero-text">
                 <h1>Hi, I'm Kathir Velan R</h1>
                 <p>An enthusiastic and goal-driven Full-Stack Web Developer in the making, currently pursuing Mechanical Engineering with a passion for creating innovative web solutions.</p>
@@ -653,9 +612,17 @@
                     </a>
                     <a href="#contact" class="btn btn-secondary">
                         <i class="fas fa-envelope"></i> Contact Me
+
                     </a>
+                    <a href="#resume" class="btn btn-secondary" id="downloadResume">
+    <i class="fa fa-file" aria-hidden="true"></i> My Resume
+</a>
+
+
                 </div>
             </div>
+            <div class="hero-content">
+            <img src="kathir.png" alt="Kathir Velan R" class="profile-image" style="background: transparent;">
         </div>
     </section>
 
@@ -726,7 +693,7 @@
         <div class="projects-grid">
             <div class="project-card">
                 <h3>RIT GPA AND CGPA CALCULATOR</h3>
-                <p class="project-date">05/2024 – 05/2024</p>
+                <p class="project-date">06/2024 – 06/2024</p>
                 <p class="project-tech">HTML | CSS | JavaScript</p>
                 <p class="project-description">
                     Developed a responsive web-based GPA & CGPA Calculator specifically for Rajalakshmi Institute of Technology students. Enabled users to input grades and credits to compute accurate GPA/CGPA using the university's official formula.
@@ -738,11 +705,10 @@
             </div>
 
             <div class="project-card">
-                <h3>Daily Motivational Quotes</h3>
-                <p class="project-date">04/2025 – 04/2025</p>
+                <h3>TIC TAC GAME</h3>
+                <p class="project-date">07/2025 – 07/2025</p>
                 <p class="project-tech">HTML | CSS | JavaScript</p>
-                <p class="project-description">
-                    Curated and shared daily motivational quotes to foster a positive mindset and consistency, delivered through digital platforms such as blogs and social media.
+                <p class="project-description">A fun two-player Tic Tac Toe game created using HTML, CSS, and JavaScript to practice front-end logic.
                 </p>
                 <div class="project-outcome">
                     <h4>Outcome:</h4>
@@ -751,16 +717,27 @@
             </div>
 
             <div class="project-card">
-                <h3>Virat Kohli IPL Journey</h3>
-                <p class="project-date">03/2025 – 03/2025</p>
-                <p class="project-tech">HTML | CSS | JavaScript</p>
+                <h3>NETFLIX-CLONE</h3>
+                <p class="project-date">08/2025 – 08/2025</p>
+                <p class="project-tech">REACT JS</p>
                 <p class="project-description">
-                    Created a web-based interactive platform showcasing the complete Indian Premier League (IPL) journey of cricketer Virat Kohli. The project includes year-wise statistics, career milestones, visual graphs, and a responsive design.
+                   A clone of the popular streaming service built with HTML, CSS, and JavaScript, featuring a responsive UI.
                 </p>
                 <div class="project-outcome">
                     <h4>Outcome:</h4>
                     <p>Strengthened front-end development skills and improved ability to present data through visuals and UI design.</p>
                 </div>
+            </div>
+            <div class="project-card">
+                <h3>PORTFOLIO</h3>
+                <p class="project-date">05/2025 – 05/2025</p>
+                <p class="project-tech">HTML | CSS | JS </p>
+                <p class="project-descriptio">
+                  Personal portfolio website built to showcase my skills, projects, and achievements as an aspiring full-stack developer
+                </p>
+                <div class="project-outcome">
+                    <h4>Outcome:</h4>
+                    <p>A personal website where you showcase your skills, achievements, resume, and projects.</p>
             </div>
         </div>
     </section>
@@ -809,7 +786,7 @@
             <a href="https://www.hackerrank.com/profile/kathirvelankvr" class="social-link" title="HackerRank">
                 <i class="fab fa-hackerrank"></i>
             </a>
-            <a href="https://leetcode.com/u/KATHIRVELAN_23/" class="social-link" title="LeetCode">
+            <a href="https://leetCreatedcode.com/u/KATHIRVELAN_23/" class="social-link" title="LeetCode">
                 <i class="fas fa-code"></i>
             </a>
         </div>
@@ -1005,7 +982,15 @@
             }
         `;
         document.head.appendChild(rippleStyle);
+        document.getElementById("downloadResume").addEventListener("click", function (e) {
+    e.preventDefault(); 
+    
+    
+    const link = document.createElement("a");
+    link.href = "resume.pdff";  
+    link.download = "resume.pdf"; 
+    link.click();
+});
     </script>
 </body>
 </html>
-
